@@ -1,9 +1,9 @@
 import axios from "axios";
-import { PutResumeInfo, UserProfile } from "..";
+import { PutResumeInfo } from "..";
 
 const API_KEY = process.env.NEXT_PUBLIC_STRAPI_API_KEY;
 const axiosClient = axios.create({
-  baseURL: "http://localhost:1337/api/",
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL + "/api/",
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${API_KEY}`,
@@ -51,7 +51,8 @@ export const GetSpecificDoc = async (id: string) => {
 export const DeleteDoc = async (id: string) => {
   try {
     const result = await axiosClient.delete(`/user-resumes/${id}`);
-    return; result.data
+    return;
+    result.data;
   } catch (error) {
     console.log("Could not delete document", error);
   }
