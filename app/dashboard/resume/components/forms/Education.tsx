@@ -13,7 +13,19 @@ import { toast } from 'sonner'
 
 const Education = () => {
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext)
-    const [educationalList, setEducationalList] = useState<edu[]>(resumeInfo?.education!)
+    const [educationalList, setEducationalList] = useState<edu[]>(
+        resumeInfo?.education! ? resumeInfo?.education :
+            [
+                {
+                    universityName: '',
+                    degree: '',
+                    major: '',
+                    startDate: '',
+                    endDate: '',
+                    description: ''
+                }
+            ]
+    )
     const [listSize, setListSize] = useState<number>(1)
     const [loading, setLoading] = useState<boolean>(false)
     const params = useParams()

@@ -24,7 +24,7 @@ const Summery = ({ enabledNext }: PersonalDetailProps) => {
             summery: summary
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [summary])
 
     const GenerateSumeryFromAI = async () => {
         setLoading(true)
