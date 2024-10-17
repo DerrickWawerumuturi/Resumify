@@ -1,36 +1,63 @@
-### This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app)
+# AI Resume Builder
+
+An intuitive, customizable AI-powered resume-building web application designed to help users create professional resumes with ease. The application offers features like drag-and-drop customization, AI-generated content suggestions, and seamless PDF export functionality.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Development](#development)
+- [Challenges and Solutions](#challenges-and-solutions)
+- [Lessons Learned](#lessons-learned)
+- [Next Steps](#next-steps)
+- [Conclusion](#conclusion)
+
+## Overview
+
+The AI Resume Builder simplifies the resume creation process by leveraging AI to suggest content for different sections of a resume, such as work experience, education, and skills. It allows users to customize their resumes through a user-friendly interface and export the final result as a PDF.
+
+## Features
+
+- **AI-Generated Suggestions**: Automatically generate tailored bullet points for work experience, skills, and summaries.
+- **Drag-and-Drop Customization**: Easily rearrange different sections of the resume using a drag-and-drop interface.
+- **Live Preview**: Real-time preview of the resume as users make changes.
+- **PDF Export**: Export the resume to a PDF with a single click.
+- **User Authentication**: Secure login and signup using Clerk's authentication system.
+
+## Architecture
+
+The project is structured as a modern web application, with the following components:
+
+- **Frontend**: Built with Next.js and Tailwind CSS for a responsive and dynamic user interface.
+- **Backend**: Managed by Strapi and PostgreSQL through Neon, providing APIs for storing user data, resumes, and authentication.
+- **AI Services**: Integrates with OpenAI for generating personalized resume content.
+- **State Management**: Uses React Context for managing shared state between components, like `ResumeInfoContext`.
+
+## Technologies Used
+
+- **Frontend**: Next.js, Tailwind CSS
+- **Backend**: Strapi, PostgreSQL (hosted on Neon)
+- **Authentication**: Clerk OAuth2 for secure user authentication
+- **AI**: OpenAI's GPT for generating content suggestions
+- **State Management**: React Context API
+- **PDF Generation**: Libraries like `react-pdf` for creating downloadable resume files
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v16+)
+- PostgreSQL database
+- Strapi backend with a PostgreSQL connection
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/ai-resume-builder.git
+   cd ai-resume-builder
