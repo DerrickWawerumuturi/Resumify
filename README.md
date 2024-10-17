@@ -61,3 +61,11 @@ To get a local copy up and running, follow these steps:
    ```bash
    git clone https://github.com/your-username/ai-resume-builder.git
    cd ai-resume-builder
+
+2. Install dependencies
+   ```bash
+   npm i
+   
+4. Start the server:
+   ```bash
+   npm run dev
