@@ -1,4 +1,4 @@
-# AI Resume Builder
+# Resumify
 
 An intuitive, customizable AI-powered resume-building web application designed to help users create professional resumes with ease. The application offers features like drag-and-drop customization, AI-generated content suggestions, and seamless PDF export functionality.
 
