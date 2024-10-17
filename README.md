@@ -41,9 +41,9 @@ The project is structured as a modern web application, with the following compon
 - **Frontend**: Next.js, Tailwind CSS
 - **Backend**: Strapi, PostgreSQL (hosted on Neon)
 - **Authentication**: Clerk OAuth2 for secure user authentication
-- **AI**: OpenAI's GPT for generating content suggestions
+- **AI**: Gemini's GPT for generating content suggestions
 - **State Management**: React Context API
-- **PDF Generation**: Libraries like `react-pdf` for creating downloadable resume files
+- **PDF Generation**: ``window's print``
 
 ## Getting Started
 
