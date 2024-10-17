@@ -75,7 +75,7 @@ const ResumeCartItem = ({ resume, refreshData }: ResumeCartItemProps) => {
             </Link>
             <div className='border p-3 flex justify-between  text-white rounded-b-lg shadow-lg'
                 style={{
-                    background: resume?.themeColor
+                    background: resume?.themeColor || "#ff6666"
                 }}>
                 <h2 className='text-center my-1'>{resume.title}</h2>
                 <DropdownMenu>

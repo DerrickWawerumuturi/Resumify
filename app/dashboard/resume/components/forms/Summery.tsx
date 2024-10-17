@@ -39,6 +39,7 @@ const Summery = ({ enabledNext }: PersonalDetailProps) => {
 
             // set the parsedData
             setAiGeneratedSummaryList(parsedData)
+            setSummary(parsedData)
             console.log(result.response.text())
 
         } catch (error) {
