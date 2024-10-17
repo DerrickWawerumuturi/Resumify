@@ -78,7 +78,7 @@ const Skills = () => {
         <div className='p-5 shadow-lg rounded-lg border-primary border-t-4 mt-10'>
             <h2 className='font-bold text-lg'>Skills</h2>
             <p className='font-semibold'>Add Your Top Professional  key skills</p>
-            <div>
+            <div className='my-5'>
                 {skillsList.map((skill, index) => (
                     <div key={index} className='flex justify-between border rounded-lg p-3 mb-2'>
                         <div className=''>
@@ -91,7 +91,7 @@ const Skills = () => {
             </div>
             <div className='flex justify-between'>
                 <div className='flex gap-2'>
-                    <Button variant={"outline"} className='text-primary' onClick={addNewSkills}> <span className='text-lg mr-2 mb-1'>+</span> Add more Skills</Button>
+                    <Button variant={"outline"} className='text-primary' onClick={addNewSkills}> <span className='text-lg mr-2 mb-1'>+</span> Add {skillsList.length > 0 ? "more Skills" : "a Skill"}</Button>
                     {listSize > 1 &&
                         <Button variant={"outline"} className='text-primary' onClick={removeSkills}> <span className='text-lg mr-2 mb-1'>-</span> Remove</Button>
 

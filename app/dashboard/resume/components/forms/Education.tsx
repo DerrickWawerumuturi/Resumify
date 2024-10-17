@@ -13,19 +13,17 @@ import { toast } from 'sonner'
 
 const Education = () => {
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext)
-    const [educationalList, setEducationalList] = useState<edu[]>(
-        resumeInfo?.education! ? resumeInfo?.education :
-            [
-                {
-                    universityName: '',
-                    degree: '',
-                    major: '',
-                    startDate: '',
-                    endDate: '',
-                    description: ''
-                }
-            ]
-    )
+    const [educationalList, setEducationalList] = useState<edu[]>(resumeInfo?.education?.length ? resumeInfo.education : [
+        {
+            universityName: "",
+            degree: '',
+            major: '',
+            startDate: '',
+            endDate: '',
+            description: ''
+        }
+    ]);
+
     const [listSize, setListSize] = useState<number>(1)
     const [loading, setLoading] = useState<boolean>(false)
     const params = useParams()
@@ -52,8 +50,11 @@ const Education = () => {
     }
 
     useEffect(() => {
-        resumeInfo && setEducationalList(resumeInfo?.education!)
-    }, [])
+        if (resumeInfo?.education?.length) {
+            setEducationalList(resumeInfo.education);
+        }
+    }, []);
+
 
     useEffect(() => {
         setResumeInfo({
@@ -89,6 +90,7 @@ const Education = () => {
         }
     }
 
+    console.log(educationalList)
     return (
         <div className='p-5 shadow-lg rounded-lg border-primary border-t-4 mt-10'>
             <h2 className='font-bold text-lg'>Education</h2>
@@ -99,27 +101,27 @@ const Education = () => {
                         <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
                             <div className='col-span-2'>
                                 <label>University name</label>
-                                <Input defaultValue={item.universityName} name="universityName" onChange={(e) => handleChange(index, e)} />
+                                <Input defaultValue={item?.universityName} name="universityName" onChange={(e) => handleChange(index, e)} />
                             </div>
                             <div>
                                 <label>Degree</label>
-                                <Input defaultValue={item.degree} name="degree" onChange={(e) => handleChange(index, e)} />
+                                <Input defaultValue={item?.degree} name="degree" onChange={(e) => handleChange(index, e)} />
                             </div>
                             <div>
                                 <label>Major</label>
-                                <Input defaultValue={item.major} name="major" onChange={(e) => handleChange(index, e)} />
+                                <Input defaultValue={item?.major} name="major" onChange={(e) => handleChange(index, e)} />
                             </div>
                             <div>
                                 <label>Start Date</label>
-                                <Input defaultValue={item.startDate} type="date" name="startDate" onChange={(e) => handleChange(index, e)} />
+                                <Input defaultValue={item?.startDate} type="date" name="startDate" onChange={(e) => handleChange(index, e)} />
                             </div>
                             <div>
                                 <label>End Date</label>
-                                <Input defaultValue={item.endDate} type="date" name="endDate" onChange={(e) => handleChange(index, e)} />
+                                <Input defaultValue={item?.endDate} type="date" name="endDate" onChange={(e) => handleChange(index, e)} />
                             </div>
                             <div className='col-span-2'>
                                 <label>Description</label>
-                                <Textarea defaultValue={item.description} name="description" onChange={(e) => handleChange(index, e)} />
+                                <Textarea defaultValue={item?.description} name="description" onChange={(e) => handleChange(index, e)} />
                             </div>
                         </div>
                         <div className='flex justify-between'>

@@ -18,6 +18,8 @@ const ResumePreview = () => {
             {/* personal detail */}
             <PersonalDetailPreview resumeInfo={resumeInfo!} />
 
+            <SummaryPreview resumeInfo={resumeInfo!} />
+
             {/* professional experience */}
             <ProfessionalExperiencePreview resumeInfo={resumeInfo!} />
 

@@ -87,7 +87,7 @@ const Experience = () => {
         <div className='p-5 shadow-lg rounded-lg border-primary border-t-4 mt-10'>
             <h2 className='font-bold text-lg'>Professional Experience</h2>
             <p>Add Your previous Job experience</p>
-            <div>
+            <div className='my-5'>
                 {experienceList.map((item, index) => (
                     <div key={index}>
                         <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>

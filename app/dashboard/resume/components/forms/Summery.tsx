@@ -13,7 +13,7 @@ import { toast } from 'sonner'
 const prompt = 'Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format'
 const Summery = ({ enabledNext }: PersonalDetailProps) => {
     const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext)
-    const [summary, setSummary] = useState<string>(resumeInfo?.summery!)
+    const [summary, setSummary] = useState<string>(resumeInfo?.summery! || "")
     const [loading, setLoading] = useState(false)
     const [AiGeneratedSummaryList, setAiGeneratedSummaryList] = useState<{ [key: string]: any } | null>(null);
     const params = useParams()
@@ -30,7 +30,6 @@ const Summery = ({ enabledNext }: PersonalDetailProps) => {
         setLoading(true)
         try {
             const PROMPT = prompt.replace('{jobTitle}', resumeInfo?.jobTitle!)
-            console.log(PROMPT)
             const result = await AIChatSession.sendMessage(PROMPT)
 
             // parsing the json
@@ -39,7 +38,6 @@ const Summery = ({ enabledNext }: PersonalDetailProps) => {
 
             // set the parsedData
             setAiGeneratedSummaryList(parsedData)
-            setSummary(parsedData)
             console.log(result.response.text())
 
         } catch (error) {
@@ -70,6 +68,7 @@ const Summery = ({ enabledNext }: PersonalDetailProps) => {
         }
     }
 
+
     return (
         <div>
             <div className='p-5 shadow-lg rounded-lg border-primary border-t-4 mt-10'>
@@ -83,7 +82,7 @@ const Summery = ({ enabledNext }: PersonalDetailProps) => {
                             Generate from AI
                         </Button>
                     </div>
-                    <Textarea value={summary} required className='mt-5' onChange={(e) => setSummary(e.target.value)} rows={5} cols={30} />
+                    <Textarea value={summary} defaultValue={summary ? summary : resumeInfo?.summery} required className='mt-5' onChange={(e) => setSummary(e.target.value)} rows={5} cols={30} />
                     <div className="mt-2 flex justify-end">
                         <Button disabled={loading} type='submit'>
                             {loading ? <Loader2 className='animate-spin' /> : "Save"}
@@ -96,7 +95,7 @@ const Summery = ({ enabledNext }: PersonalDetailProps) => {
                 <h2 className='font-bold text-lg'>Suggestions</h2>
                 {AiGeneratedSummaryList?.map((item: any, index: number) => (
                     <div key={index}
-                        onClick={() => setSummary(item?.summary)}
+                        onClick={() => { setSummary(item?.summary) }}
                         className='p-5 shadow-lg my-4 rounded-lg cursor-pointer hover:scale-105 transition-all hover:shadow-md'>
                         <h2 className='font-bold my-1 text-primary'>Level: {item?.experience_level}</h2>
                         <p>{item?.summary}</p>
